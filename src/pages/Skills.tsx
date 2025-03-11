@@ -4,7 +4,6 @@ import {
   Code, Database, Server, Brain, Cloud, Terminal, Github, PenTool, Package, 
   Layers, Cpu, Workflow, Users, Zap, Figma, Globe, Sparkles, BarChart, Rocket, Clock
 } from 'lucide-react';
-import { Card } from '@/components/ui/card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

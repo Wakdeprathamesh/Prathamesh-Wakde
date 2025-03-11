@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar, GraduationCap, Briefcase, Heart, Brain, Code, Users, Target, Rocket, Lightbulb } from 'lucide-react';
+import { Heart, Brain, Code, Users, Target, Rocket, Lightbulb } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const fadeInUp = {

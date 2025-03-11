@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Search, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, Search, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Image } from '@/components/ui/image';
-import { Link } from 'react-router-dom';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
