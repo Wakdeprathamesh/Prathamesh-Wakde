@@ -84,6 +84,8 @@ const Home = () => {
     }
   ];
   
+  // Comment out the testimonials array
+  /* 
   const testimonials = [
     {
       quote: "Prathamesh delivered an exceptional web application that exceeded our expectations. His expertise in AI integration added tremendous value to our project.",
@@ -104,6 +106,7 @@ const Home = () => {
       avatar: "https://randomuser.me/api/portraits/women/65.jpg"
     }
   ];
+  */
 
   // GSAP Animation References
   const heroSectionRef = useRef(null);
@@ -545,58 +548,47 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 bg-muted/30 w-full scroll-mt-16">
-          <div className="container px-4 mx-auto w-full">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="max-w-4xl mx-auto text-center mb-16"
+        {/* Testimonials Section - Hidden until we have real testimonials
+        <motion.section 
+          className="py-20 bg-muted/30"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
+          <div className="container mx-auto px-4">
+            <motion.div 
+              className="text-center mb-16"
+              variants={fadeInUp}
             >
-              <motion.h2 
-                variants={fadeInUp}
-                className="text-3xl font-bold mb-6"
-              >
+              <h2 className="text-3xl font-bold mb-4">
                 Client Testimonials
-              </motion.h2>
-              <motion.p 
-                variants={fadeInUp}
-                className="text-lg text-muted-foreground"
-              >
-                Hear what clients have to say about working with me and my team.
-              </motion.p>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                What people are saying about working with me
+              </p>
             </motion.div>
-
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
-            >
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <motion.div 
                   key={index}
-                  variants={cardHoverVariants}
-                  initial="initial"
+                  variants={fadeInUp}
                   whileHover="hover"
+                  initial="initial"
                   className="h-full"
                 >
-                  <Card className="p-6 h-full flex flex-col transition-all duration-300">
-                    <div className="mb-6">
-                      <svg className="h-8 w-8 text-primary/60" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
-                    </div>
+                  <Card 
+                    className="p-8 h-full flex flex-col"
+                    variants={cardHoverVariants}
+                  >
                     <p className="text-lg mb-6 flex-grow italic text-muted-foreground">"{testimonial.quote}"</p>
                     <div className="flex items-center">
-                      <div className="mr-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                         <Image 
                           src={testimonial.avatar} 
                           alt={testimonial.author}
-                          className="h-12 w-12 rounded-full object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
@@ -607,9 +599,10 @@ const Home = () => {
                   </Card>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
-        </section>
+        </motion.section>
+        */}
         
         {/* Call to Action Section */}
         <section className="py-20 w-full scroll-mt-16">
