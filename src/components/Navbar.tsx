@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, FileText, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/theme-provider';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -85,6 +85,43 @@ const Navbar = () => {
                   )}
                 </Link>
               ))}
+              
+              {/* Resume Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center gap-1 hover:text-primary"
+                  >
+                    <FileText className="h-4 w-4" />
+                    <span>Resume</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <a 
+                      href="/assets/resume/ai-powered-full-stack-engineer.pdf" 
+                      download="Prathamesh-Wakde-Technical-Resume.pdf"
+                      className="flex items-center"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Dev/AI Resume
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a 
+                      href="/assets/resume/Product_Resume.pdf" 
+                      download="Prathamesh-Wakde-Business-Resume.pdf"
+                      className="flex items-center"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Business/Product Resume
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
@@ -172,6 +209,37 @@ const Navbar = () => {
                     </Link>
                   </motion.div>
                 ))}
+                
+                {/* Mobile Resume Download Options */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navigation.length * 0.05 }}
+                >
+                  <div className="px-3 py-2">
+                    <p className="text-base font-medium mb-2">Resume</p>
+                    <div className="flex flex-col gap-2 pl-2">
+                      <a 
+                        href="/assets/resume/ai-powered-full-stack-engineer.pdf" 
+                        download="Prathamesh-Wakde-Technical-Resume.pdf"
+                        className="text-sm flex items-center gap-2 hover:text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Download className="h-4 w-4" />
+                        Dev/AI Resume
+                      </a>
+                      <a 
+                        href="/assets/resume/Product_Resume.pdf" 
+                        download="Prathamesh-Wakde-Business-Resume.pdf"
+                        className="text-sm flex items-center gap-2 hover:text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Download className="h-4 w-4" />
+                        Business/Product Resume
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           )}

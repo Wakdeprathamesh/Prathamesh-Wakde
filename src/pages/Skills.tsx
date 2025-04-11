@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { 
   Code, Database, Server, Brain, Cloud, Terminal, Github, PenTool, Package, 
-  Layers, Cpu, Workflow, Users, Zap, Figma, Globe, Sparkles, BarChart, Rocket, Clock
+  Layers, Cpu, Workflow, Users, Zap, Figma, Globe, Sparkles, BarChart, Rocket, Clock,
+  Building, Lightbulb, Target, Heart, MessageSquare
 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import gsap from 'gsap';
@@ -50,146 +51,106 @@ const hexagonVariants = {
 // Skill categories with their skills
 const skillCategories: SkillCategory[] = [
   {
-    id: 'frontend',
-    title: 'Frontend Development',
+    id: 'technical',
+    title: 'Technical Skills',
     icon: <Code className="h-6 w-6" />,
     color: 'from-blue-500 to-cyan-400',
     skills: [
-      { name: 'HTML5', icon: <Code className="h-5 w-5" />, description: 'Semantic markup and structure' },
-      { name: 'CSS3', icon: <PenTool className="h-5 w-5" />, description: 'Styling and responsive design' },
-      { name: 'JavaScript (ES6+)', icon: <Zap className="h-5 w-5" />, description: 'Modern JavaScript programming' },
-      { name: 'React.js', icon: <Cpu className="h-5 w-5" />, description: 'Component-based UI development' },
-      { name: 'Tailwind CSS', icon: <Layers className="h-5 w-5" />, description: 'Utility-first CSS framework' },
-      { name: 'GSAP', icon: <Sparkles className="h-5 w-5" />, description: 'Advanced animations with GreenSock' },
-      { name: 'Framer Motion', icon: <Zap className="h-5 w-5" />, description: 'React animation library' },
-      { name: 'Vite', icon: <Rocket className="h-5 w-5" />, description: 'Next-generation frontend tooling' },
-      { name: 'Locomotive.js', icon: <Sparkles className="h-5 w-5" />, description: 'Smooth scrolling library' }
-    ]
-  },
-  {
-    id: 'backend',
-    title: 'Backend Development',
-    icon: <Server className="h-6 w-6" />,
-    color: 'from-green-500 to-emerald-400',
-    skills: [
+      { name: 'HTML', icon: <Code className="h-5 w-5" />, description: 'Semantic markup and structure' },
+      { name: 'CSS', icon: <PenTool className="h-5 w-5" />, description: 'Styling and responsive design' },
+      { name: 'JavaScript', icon: <Zap className="h-5 w-5" />, description: 'Modern JavaScript programming' },
+      { name: 'React', icon: <Cpu className="h-5 w-5" />, description: 'Component-based UI development' },
       { name: 'Node.js', icon: <Server className="h-5 w-5" />, description: 'JavaScript runtime for server-side development' },
       { name: 'Express.js', icon: <Rocket className="h-5 w-5" />, description: 'Web application framework for Node.js' },
       { name: 'MongoDB', icon: <Database className="h-5 w-5" />, description: 'NoSQL database for modern applications' },
-      { name: 'SQL', icon: <Database className="h-5 w-5" />, description: 'Relational database query language' },
       { name: 'REST APIs', icon: <Globe className="h-5 w-5" />, description: 'RESTful API design and implementation' },
-      { name: 'WebSockets', icon: <Zap className="h-5 w-5" />, description: 'Real-time bidirectional communication' },
-      { name: 'JWT', icon: <Layers className="h-5 w-5" />, description: 'JSON Web Tokens for authentication' },
-      { name: 'OAuth', icon: <Layers className="h-5 w-5" />, description: 'Open standard for access delegation' }
+      { name: 'FastAPI', icon: <Rocket className="h-5 w-5" />, description: 'Modern, fast web framework for Python' },
+      { name: 'Vite', icon: <Rocket className="h-5 w-5" />, description: 'Next-generation frontend tooling' },
+      { name: 'Tailwind CSS', icon: <Layers className="h-5 w-5" />, description: 'Utility-first CSS framework' },
+      { name: 'Git', icon: <Github className="h-5 w-5" />, description: 'Version control system' },
+      { name: 'GitHub', icon: <Github className="h-5 w-5" />, description: 'Collaboration and version control platform' },
+      { name: 'VS Code', icon: <Code className="h-5 w-5" />, description: 'Code editor' },
+      { name: 'Postman', icon: <Globe className="h-5 w-5" />, description: 'API development and testing' },
+      { name: 'SQL', icon: <Database className="h-5 w-5" />, description: 'Relational database query language' },
+      { name: 'Firebase', icon: <Database className="h-5 w-5" />, description: 'Backend-as-a-Service platform' },
+      { name: 'MongoDB Atlas', icon: <Cloud className="h-5 w-5" />, description: 'Cloud database service' },
+      { name: 'Python', icon: <Code className="h-5 w-5" />, description: 'General-purpose programming language' },
+      { name: 'C++', icon: <Code className="h-5 w-5" />, description: 'High-performance programming language' },
+      { name: 'GSAP', icon: <Sparkles className="h-5 w-5" />, description: 'Advanced animations with GreenSock' },
+      { name: 'Locomotive Scroll', icon: <Sparkles className="h-5 w-5" />, description: 'Smooth scrolling library' },
+      { name: 'Framer Motion', icon: <Sparkles className="h-5 w-5" />, description: 'React animation library' }
     ]
   },
   {
     id: 'ai',
-    title: 'AI/ML Integration',
+    title: 'AI & Machine Learning',
     icon: <Brain className="h-6 w-6" />,
     color: 'from-purple-500 to-violet-400',
     skills: [
-      { name: 'DeepSeek R1', icon: <Brain className="h-5 w-5" />, description: 'Advanced AI model integration' },
-      { name: 'Llama 2', icon: <Brain className="h-5 w-5" />, description: 'Open-source large language model' },
+      { name: 'RAG Architecture', icon: <Workflow className="h-5 w-5" />, description: 'Retrieval-Augmented Generation' },
+      { name: 'FAISS', icon: <Database className="h-5 w-5" />, description: 'Vector similarity search library' },
+      { name: 'Langchain', icon: <Layers className="h-5 w-5" />, description: 'Framework for LLM applications' },
+      { name: 'DeepSeek', icon: <Brain className="h-5 w-5" />, description: 'Large language model integration' },
       { name: 'Gemini API', icon: <Sparkles className="h-5 w-5" />, description: 'Google\'s multimodal AI model' },
-      { name: 'OpenAI API', icon: <Brain className="h-5 w-5" />, description: 'GPT integration for applications' },
-      { name: 'TensorFlow', icon: <Cpu className="h-5 w-5" />, description: 'Machine learning framework' },
-      { name: 'LangChain', icon: <Layers className="h-5 w-5" />, description: 'Framework for LLM applications' },
-      { name: 'RAG', icon: <Database className="h-5 w-5" />, description: 'Retrieval-Augmented Generation' }
+      { name: 'Llama Models', icon: <Brain className="h-5 w-5" />, description: 'Open-source large language models' },
+      { name: 'LangGraph', icon: <Workflow className="h-5 w-5" />, description: 'Graph-based LLM orchestration' },
+      { name: 'MCP Servers', icon: <Server className="h-5 w-5" />, description: 'Model control protocol servers' },
+      { name: 'Agentic AI', icon: <Cpu className="h-5 w-5" />, description: 'AI agent development and orchestration' },
+      { name: 'Python', icon: <Code className="h-5 w-5" />, description: 'Primary language for ML development' },
+      { name: 'PyTorch (CUDA)', icon: <Cpu className="h-5 w-5" />, description: 'Deep learning framework with GPU acceleration' },
+      { name: 'HuggingFace', icon: <Package className="h-5 w-5" />, description: 'Transformers library and model hub' },
+      { name: 'Prompt Engineering', icon: <MessageSquare className="h-5 w-5" />, description: 'Designing effective prompts for LLMs' },
+      { name: 'OpenAI API', icon: <Brain className="h-5 w-5" />, description: 'Integration with OpenAI services' }
     ]
   },
   {
-    id: 'fullstack',
-    title: 'Full-Stack Technologies',
-    icon: <Layers className="h-6 w-6" />,
-    color: 'from-red-500 to-orange-400',
-    skills: [
-      { name: 'MERN Stack', icon: <Layers className="h-5 w-5" />, description: 'MongoDB, Express, React, Node.js' },
-      { name: 'MVC Architecture', icon: <Workflow className="h-5 w-5" />, description: 'Model-View-Controller pattern' },
-      { name: 'Authentication', icon: <Layers className="h-5 w-5" />, description: 'User authentication systems' },
-      { name: 'Middleware', icon: <Workflow className="h-5 w-5" />, description: 'Request processing middleware' },
-      { name: 'Redux', icon: <Workflow className="h-5 w-5" />, description: 'State management for React' },
-      { name: 'Zustand', icon: <Workflow className="h-5 w-5" />, description: 'Modern state management' }
-    ]
-  },
-  {
-    id: 'tools',
-    title: 'Tools & Platforms',
-    icon: <Package className="h-6 w-6" />,
+    id: 'product',
+    title: 'Product & Business Skills',
+    icon: <Lightbulb className="h-6 w-6" />,
     color: 'from-amber-500 to-yellow-400',
     skills: [
-      { name: 'Git & GitHub', icon: <Github className="h-5 w-5" />, description: 'Version control and collaboration' },
-      { name: 'Docker', icon: <Package className="h-5 w-5" />, description: 'Containerization platform' },
-      { name: 'Postman', icon: <Globe className="h-5 w-5" />, description: 'API development and testing' },
-      { name: 'Firebase', icon: <Database className="h-5 w-5" />, description: 'Backend-as-a-Service platform' },
-      { name: 'Netlify', icon: <Cloud className="h-5 w-5" />, description: 'Web hosting and automation' },
-      { name: 'Vercel', icon: <Cloud className="h-5 w-5" />, description: 'Deployment and hosting platform' },
-      { name: 'Railway', icon: <Cloud className="h-5 w-5" />, description: 'Infrastructure platform' },
-      { name: 'Bolt.new', icon: <Zap className="h-5 w-5" />, description: 'Development environment' },
-      { name: 'Figma', icon: <Figma className="h-5 w-5" />, description: 'Design and prototyping tool' }
+      { name: 'Product Ideation', icon: <Lightbulb className="h-5 w-5" />, description: 'Generating and refining product ideas' },
+      { name: 'Prototyping', icon: <Layers className="h-5 w-5" />, description: 'Creating functional product prototypes' },
+      { name: 'MVP Development', icon: <Rocket className="h-5 w-5" />, description: 'Building minimum viable products' },
+      { name: 'User Journey Mapping', icon: <Workflow className="h-5 w-5" />, description: 'Mapping user experiences and interactions' },
+      { name: 'UX Focus', icon: <Users className="h-5 w-5" />, description: 'User-centered design approach' },
+      { name: 'Feature Roadmapping', icon: <Target className="h-5 w-5" />, description: 'Planning product feature development' },
+      { name: 'Prioritization', icon: <BarChart className="h-5 w-5" />, description: 'Evaluating and prioritizing features' },
+      { name: 'Market Research', icon: <Globe className="h-5 w-5" />, description: 'Analyzing market trends and opportunities' },
+      { name: 'Competitor Analysis', icon: <Target className="h-5 w-5" />, description: 'Evaluating competitive landscape' }
     ]
   },
   {
-    id: 'soft',
-    title: 'Soft Skills',
+    id: 'hr',
+    title: 'People & HR Skills',
     icon: <Users className="h-6 w-6" />,
     color: 'from-pink-500 to-rose-400',
     skills: [
-      { name: 'Problem-Solving', icon: <Cpu className="h-5 w-5" />, description: 'Analytical approach to challenges' },
-      { name: 'Team Leadership', icon: <Users className="h-5 w-5" />, description: 'Leading development teams' },
-      { name: 'Agile & Scrum', icon: <Workflow className="h-5 w-5" />, description: 'Agile methodologies and practices' },
-      { name: 'Communication', icon: <Users className="h-5 w-5" />, description: 'Clear and effective communication' },
-      { name: 'Critical Thinking', icon: <Brain className="h-5 w-5" />, description: 'Analytical problem assessment' },
-      { name: 'Time Management', icon: <Clock className="h-5 w-5" />, description: 'Efficient task prioritization' }
+      { name: 'Talent Acquisition', icon: <Users className="h-5 w-5" />, description: 'Recruiting and hiring processes' },
+      { name: 'Onboarding', icon: <Workflow className="h-5 w-5" />, description: 'New employee integration processes' },
+      { name: 'HR Operations', icon: <Building className="h-5 w-5" />, description: 'Day-to-day HR management' },
+      { name: 'Employee Engagement', icon: <Heart className="h-5 w-5" />, description: 'Fostering workplace satisfaction' },
+      { name: 'Culture Building', icon: <Users className="h-5 w-5" />, description: 'Developing positive workplace culture' },
+      { name: 'Internal Communication', icon: <MessageSquare className="h-5 w-5" />, description: 'Effective organizational communication' },
+      { name: 'Team Coordination', icon: <Users className="h-5 w-5" />, description: 'Managing team dynamics and workflow' },
+      { name: 'Leadership Support', icon: <Users className="h-5 w-5" />, description: 'Assisting leadership teams' }
     ]
   },
   {
-    id: 'cloud',
-    title: 'Cloud & Deployment',
-    icon: <Cloud className="h-6 w-6" />,
-    color: 'from-sky-500 to-blue-400',
-    skills: [
-      { name: 'AWS', icon: <Cloud className="h-5 w-5" />, description: 'Amazon Web Services basics' },
-      { name: 'Heroku', icon: <Cloud className="h-5 w-5" />, description: 'PaaS for application deployment' },
-      { name: 'DigitalOcean', icon: <Cloud className="h-5 w-5" />, description: 'Cloud infrastructure provider' },
-      { name: 'Firebase Hosting', icon: <Cloud className="h-5 w-5" />, description: 'Web application hosting' }
-    ]
-  },
-  {
-    id: 'libraries',
-    title: 'Libraries & Frameworks',
-    icon: <Package className="h-6 w-6" />,
-    color: 'from-indigo-500 to-blue-400',
-    skills: [
-      { name: 'Next.js', icon: <Rocket className="h-5 w-5" />, description: 'React framework for production' },
-      { name: 'Bootstrap', icon: <Layers className="h-5 w-5" />, description: 'CSS framework for responsive design' },
-      { name: 'Chakra UI', icon: <Layers className="h-5 w-5" />, description: 'Component library for React' },
-      { name: 'ShadCN', icon: <Layers className="h-5 w-5" />, description: 'UI component library' },
-      { name: 'Material UI', icon: <Layers className="h-5 w-5" />, description: 'React UI framework' }
-    ]
-  },
-  {
-    id: 'animations',
-    title: 'Web Animations & UX',
-    icon: <Sparkles className="h-6 w-6" />,
+    id: 'creative',
+    title: 'Creative & Communication',
+    icon: <PenTool className="h-6 w-6" />,
     color: 'from-teal-500 to-green-400',
     skills: [
-      { name: 'Parallax Scrolling', icon: <Sparkles className="h-5 w-5" />, description: 'Depth effect with scrolling' },
-      { name: 'Micro-interactions', icon: <Sparkles className="h-5 w-5" />, description: 'Subtle animation feedback' },
-      { name: 'Smooth Scrolling', icon: <Sparkles className="h-5 w-5" />, description: 'Enhanced scrolling experience' },
-      { name: 'Hover Effects', icon: <Sparkles className="h-5 w-5" />, description: 'Interactive element feedback' },
-      { name: 'Lazy Loading', icon: <Sparkles className="h-5 w-5" />, description: 'Performance optimization technique' }
-    ]
-  },
-  {
-    id: 'devops',
-    title: 'DevOps & Automation',
-    icon: <Terminal className="h-6 w-6" />,
-    color: 'from-gray-500 to-slate-400',
-    skills: [
-      { name: 'GitHub Actions', icon: <Workflow className="h-5 w-5" />, description: 'CI/CD automation' },
-      { name: 'CI/CD Pipelines', icon: <Workflow className="h-5 w-5" />, description: 'Continuous integration/deployment' },
-      { name: 'Environment Variables', icon: <Terminal className="h-5 w-5" />, description: 'Configuration management' },
-      { name: 'Load Balancing', icon: <BarChart className="h-5 w-5" />, description: 'Traffic distribution' }
+      { name: 'Personal Branding', icon: <Target className="h-5 w-5" />, description: 'Developing professional brand identity' },
+      { name: 'Storytelling', icon: <MessageSquare className="h-5 w-5" />, description: 'Narrative creation and delivery' },
+      { name: 'Content Writing', icon: <PenTool className="h-5 w-5" />, description: 'Blogs, documentation, and copy' },
+      { name: 'UI Design', icon: <Figma className="h-5 w-5" />, description: 'Basics of interface design' },
+      { name: 'Figma', icon: <Figma className="h-5 w-5" />, description: 'Design and prototyping tool' },
+      { name: 'Canva', icon: <PenTool className="h-5 w-5" />, description: 'Graphic design platform' },
+      { name: 'Public Speaking', icon: <MessageSquare className="h-5 w-5" />, description: 'Presentation and public address skills' },
+      { name: 'Community Building', icon: <Users className="h-5 w-5" />, description: 'Growing and nurturing communities' },
+      { name: 'Collaboration', icon: <Users className="h-5 w-5" />, description: 'Working effectively with others' }
     ]
   }
 ];

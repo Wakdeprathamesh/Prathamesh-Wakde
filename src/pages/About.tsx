@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Heart, Brain, Code, Users, Target, Rocket, Lightbulb } from 'lucide-react';
+import { Heart, Brain, Code, Users, Target, Rocket, Lightbulb, Download, FileText } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -95,6 +96,53 @@ const About = () => {
             <p className="text-lg text-muted-foreground">
               I believe in continuous learning, creativity, and delivering excellence. With expertise in both front-end and back-end development, coupled with AI integration capabilities, I help businesses transform their digital presence.
             </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Resume Download Section */}
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto mb-20 bg-card rounded-lg p-6 border"
+        >
+          <motion.h2 
+            variants={fadeInUp}
+            className="text-2xl font-semibold mb-4"
+          >
+            My Resume
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="text-muted-foreground mb-6"
+          >
+            Download my resume tailored to different professional roles:
+          </motion.p>
+          <motion.div 
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <Button className="flex items-center gap-2" size="lg" asChild>
+              <a 
+                href="/assets/resume/ai-powered-full-stack-engineer.pdf" 
+                download="Prathamesh-Wakde-Technical-Resume.pdf"
+              >
+                <FileText className="h-5 w-5 mr-1" />
+                Technical/AI Resume
+                <Download className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
+            <Button className="flex items-center gap-2" variant="outline" size="lg" asChild>
+              <a 
+                href="/assets/resume/Product_Resume.pdf" 
+                download="Prathamesh-Wakde-Business-Resume.pdf"
+              >
+                <FileText className="h-5 w-5 mr-1" />
+                Business/Product Resume
+                <Download className="h-4 w-4 ml-2" />
+              </a>
+            </Button>
           </motion.div>
         </motion.div>
 

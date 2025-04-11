@@ -293,13 +293,13 @@ const Home = () => {
         structuredData={personStructuredData as any}
       />
       
-      <div className="min-h-screen">
-        {/* Hero Section */}
+    <div className="min-h-screen">
+      {/* Hero Section */}
         <section ref={heroSectionRef} className="relative h-screen flex items-center justify-center overflow-hidden w-full">
           <div ref={backgroundRef} className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/50" />
-          </div>
-          
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/50" />
+        </div>
+        
           <div className="container px-4 mx-auto relative z-10 w-full">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <motion.div
@@ -326,48 +326,48 @@ const Home = () => {
                 </Button>
               </motion.div>
 
-              <motion.div
+          <motion.div
                 ref={contentRef}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ 
                   duration: 0.8, 
                   ease: [0.6, 0.05, 0.01, 0.9],
                   delay: 0.4
                 }}
                 className="text-left max-w-2xl"
-              >
-                <motion.h1
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+          >
+            <motion.h1
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="text-4xl md:text-6xl font-bold mb-6"
-                >
-                  Hi, I'm Prathamesh Wakde
-                </motion.h1>
-                
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
+              Hi, I'm Prathamesh Wakde
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                   transition={{ delay: 0.8, duration: 0.8 }}
                   className="text-xl md:text-2xl text-muted-foreground mb-8"
-                >
-                  Full Stack AI Developer & Freelancing Leader
-                </motion.p>
-                
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+            >
+              Full Stack AI Developer & Freelancing Leader
+            </motion.p>
+            
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
                   className="text-lg text-muted-foreground mb-12"
-                >
-                  Building dynamic, intelligent web experiences with precision, innovation, and a dedicated team.
-                </motion.p>
-                
-                <motion.div
+            >
+              Building dynamic, intelligent web experiences with precision, innovation, and a dedicated team.
+            </motion.p>
+            
+            <motion.div
                   ref={buttonsRef}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
                   className="flex flex-col sm:flex-row gap-4 mb-12"
                 >
@@ -378,12 +378,12 @@ const Home = () => {
                   >
                     <Button size="lg" className="group w-full" asChild>
                       <Link to="/contact">
-                        Hire Me
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                Hire Me
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>
-                    </Button>
-                  </motion.div>
-                  
+              </Button>
+            </motion.div>
+
                   <motion.div
                     variants={buttonHoverVariants}
                     initial="initial"
@@ -398,29 +398,29 @@ const Home = () => {
                 </motion.div>
 
                 {/* Mobile Social Links */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                   transition={{ delay: 1.4, duration: 0.8 }}
                   className="flex md:hidden gap-4 justify-center"
-                >
+            >
                   <Button variant="ghost" size="icon" className="rounded-full" asChild>
                     <a href="https://github.com/Wakdeprathamesh" target="_blank" rel="noopener noreferrer">
-                      <Github className="h-5 w-5" />
-                    </a>
-                  </Button>
+                  <Github className="h-5 w-5" />
+                </a>
+              </Button>
                   <Button variant="ghost" size="icon" className="rounded-full" asChild>
                     <a href="https://www.linkedin.com/in/prathamesh-wakde-479b09236/" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                  </Button>
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </Button>
                   <Button variant="ghost" size="icon" className="rounded-full" asChild>
                     <a href="mailto:wakdeprathamesh12@gmail.com">
-                      <Mail className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </motion.div>
-              </motion.div>
+                  <Mail className="h-5 w-5" />
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
 
               <motion.div
                 ref={imageRef}
@@ -441,25 +441,25 @@ const Home = () => {
                 </div>
               </motion.div>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Overview Section */}
+      {/* Overview Section */}
         <section ref={overviewSectionRef} className="py-20 bg-muted/50 w-full scroll-mt-16">
           <div className="container px-4 mx-auto w-full">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 ref={overviewTitleRef} className="text-3xl font-bold mb-6">
-                Overview
+              Overview
               </h2>
               <p ref={overviewTextRef} className="text-lg text-muted-foreground">
-                I'm Prathamesh Wakde, a Full Stack AI Developer specializing in creating interactive, intelligent web experiences. With 6–7 key projects and a dedicated freelancing team, I turn innovative ideas into reality.
+              I'm Prathamesh Wakde, a Full Stack AI Developer specializing in creating interactive, intelligent web experiences. With 6–7 key projects and a dedicated freelancing team, I turn innovative ideas into reality.
               </p>
             </div>
 
             <div ref={skillsGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={index}
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
                   variants={cardHoverVariants}
                   initial="initial"
                   whileHover="hover"
@@ -467,83 +467,83 @@ const Home = () => {
                 >
                   <Card className="p-6 h-full transition-all duration-300">
                     <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                        {skill.icon}
-                      </div>
-                      <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
-                      <p className="text-muted-foreground">{skill.description}</p>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
+                  {skill.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
+                <p className="text-muted-foreground">{skill.description}</p>
                     </div>
                   </Card>
-                </motion.div>
-              ))}
+              </motion.div>
+            ))}
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Featured Projects Section */}
+      {/* Featured Projects Section */}
         <section ref={projectsSectionRef} className="py-20 w-full scroll-mt-16">
           <div className="container px-4 mx-auto w-full">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h2 ref={projectsTitleRef} className="text-3xl font-bold mb-6">
-                Featured Projects
+              Featured Projects
               </h2>
               <p ref={projectsTextRef} className="text-lg text-muted-foreground">
-                Explore some of my recent work that showcases my expertise in full-stack development and AI integration.
+              Explore some of my recent work that showcases my expertise in full-stack development and AI integration.
               </p>
             </div>
 
             <div ref={projectsGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-              {featuredProjects.map((project, index) => (
-                <motion.div
-                  key={index}
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={index}
                   variants={cardHoverVariants}
                   initial="initial"
                   whileHover="hover"
                   className="project-card"
                 >
                   <Card className="overflow-hidden h-full transition-all duration-300 border-2 border-transparent hover:border-primary/20 shadow-sm hover:shadow-md">
-                    <div className="aspect-video relative overflow-hidden">
+                  <div className="aspect-video relative overflow-hidden">
                       <div className="absolute top-2 right-2 z-10">
                         <span className="px-3 py-1 text-xs font-medium rounded-full bg-black/70 text-white">
                           {project.tags[0]}
                         </span>
                       </div>
                       <Image
-                        src={project.image}
-                        alt={project.title}
+                      src={project.image}
+                      alt={project.title}
                         className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-                      />
+                    />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Button variant="secondary" size="sm" className="backdrop-blur-sm bg-white/20" asChild>
                           <Link to="/projects">
-                            View Project
-                            <ExternalLink className="ml-2 h-4 w-4" />
+                        View Project
+                        <ExternalLink className="ml-2 h-4 w-4" />
                           </Link>
-                        </Button>
-                      </div>
+                      </Button>
                     </div>
-                    <div className="p-6">
+                  </div>
+                  <div className="p-6">
                       <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4">{project.description}</p>
+                    <p className="text-muted-foreground mb-4">{project.description}</p>
                       
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                       
                       {project.highlight && (
                         <HomeProjectDetails highlight={project.highlight} />
                       )}
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
             </div>
           </div>
         </section>
@@ -567,15 +567,15 @@ const Home = () => {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 What people are saying about working with me
               </p>
-            </motion.div>
-            
+          </motion.div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <motion.div 
+          <motion.div
                   key={index}
                   variants={fadeInUp}
                   whileHover="hover"
-                  initial="initial"
+            initial="initial"
                   className="h-full"
                 >
                   <Card 
@@ -610,7 +610,7 @@ const Home = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+            viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto text-center bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-2xl"
             >
@@ -678,11 +678,11 @@ const HomeProjectDetails = ({ highlight }: HomeProjectDetailsProps) => {
             <Button size="sm" variant="outline" className="w-full" asChild>
               <Link to="/projects">
                 See All Projects
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
-        </motion.div>
+          </motion.div>
       )}
     </div>
   );
