@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { 
-  Code, Database, Server, Brain, Cloud, Terminal, Github, PenTool, Package, 
-  Layers, Cpu, Workflow, Users, Zap, Figma, Globe, Sparkles, BarChart, Rocket, Clock,
+  Code, Database, Server, Brain, Cloud, Github, PenTool, Package, 
+  Layers, Cpu, Workflow, Users, Zap, Figma, Globe, Sparkles, BarChart, Rocket,
   Building, Lightbulb, Target, Heart, MessageSquare
 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';

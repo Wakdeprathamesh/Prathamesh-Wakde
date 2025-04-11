@@ -13,20 +13,7 @@ import SEO from '@/components/SEO/SEO';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
+// Animation variants for Framer Motion
 const cardHoverVariants = {
   initial: { 
     scale: 1, 
